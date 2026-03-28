@@ -22,9 +22,9 @@ while verMenu:
     if opcion == 1:
         listarConcesionarios(datos)
     elif opcion == 2:
-        pass
+        contarModelosConcesionario(datos)
     elif opcion == 3:
-        pass
+        mostrarCochesEnRangoPrecio(datos)
     elif opcion == 4:
         pass
     elif opcion == 5:

@@ -14,7 +14,36 @@ def cargarDatos(ruta):
         sys.exit(1)
     
 def listarConcesionarios(datos):
-    for i in range(len(datos)):
-        c = datos[i]
+    for c in datos:
         print('Nombre: ', c['name'], '| Ciudad: ', c['city'], '| Estado: ', c['state'])
     print('Total:', len(datos), 'concesionarios')
+            
+def contarModelosConcesionario(datos):
+    for c in datos:
+        print('Nombre: ', c['name'], ' | Modelos disponibles: ', len(c['inventario']))
+        
+def optenerPrecios():
+    try:
+        pmax = float(input('Introduce el precio maximo: '))
+        pmin = float(input('Introduce el precio minimo: '))
+        if pmax < pmin:
+            print('Error el precio maximo debe ser sueperior o igual al minimo')
+            sys.exit(1)
+        return pmax, pmin
+    except ValueError:
+        print('Error el precio debe ser un numero')
+        sys.exit(1)
+        
+def comprobarRangoPrecio(precio, pmax, pmin):
+    if precio >= pmin and precio <= pmax:
+        return True
+
+def mostrarCochesEnRangoPrecio(datos):
+    pmax, pmin = optenerPrecios()
+    for c in datos:
+        for coche, info in c['inventario'].items():
+            if comprobarRangoPrecio(info['precio_base'], pmax, pmin):
+                print('Modelo: ', coche, ' | Precio Base: ', info['precio_base'], ' | Concesionario: ', c['name'])
+
+
+                
