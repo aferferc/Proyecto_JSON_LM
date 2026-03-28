@@ -1,7 +1,8 @@
-#Descripcion del fichero y FUnciones del programa:
+#Descripcion del fichero y Funciones del programa:
 
 EL fichero json contiene un array concesionarios de toyota en estados unidos con información de localización, contacto, servicios e inventario. Este presenta la siguiente estructura:
 
+```
 ROOT (Array)
 │
 └── concesionario (Object)
@@ -48,10 +49,11 @@ ROOT (Array)
             ├── colores (array[string])
             ├── motorizaciones (array[string])
             └── extras (array[string])
+```
 
+Podemos ver mas clara la estructuracon el siguiente ejemplo:
 
-Podemos ver mas clara laestructuracon el siguiente ejemplo:
-
+```
 {
   {
     "code": "37130",
@@ -185,32 +187,31 @@ Podemos ver mas clara laestructuracon el siguiente ejemplo:
           "Carga inal\u00e1mbrica"
         ],
         "stock": 20
-     
       }
      }
   },
-  
   {Otro concesionario}
 }
+```
 
-Las Funciones del menu de el programa cumpliran las siguientes tareas:
+##Las Funciones del menu de el programa cumpliran las siguientes tareas:
 
-1) Mostrar todos los concesionarios indicando nombre, ciudad y estado.
+1. Mostrar todos los concesionarios indicando nombre, ciudad y estado.
 
-2) Mostrar cuántos modelos distintos hay en el inventario de cada concesionario.
+2. Mostrar cuántos modelos distintos hay en el inventario de cada concesionario.
 
-3) Pedir un precio base minimo y uno maximo y mostrar los coches que se pueden optener en este rango
+3. Pedir un precio base minimo y uno maximo y mostrar los coches que se pueden optener en este rango
 
-4) Pedir un modelo y mostrar en qué concesionarios está disponible y sus motorizaciones.
+4. Pedir un modelo y mostrar en qué concesionarios está disponible y sus motorizaciones.
 
-5) Mostrar un listado de todos los modelos registrados con el numero de unidades en stock, motorizaciones, colores y extras en total sumando los datos de todos los concesionarios. Esta lista estará ordenada de mayor a menor por el numero de unidades.
+5. Mostrar un listado de todos los modelos registrados con el numero de unidades en stock, motorizaciones, colores y extras en total sumando los datos de todos los concesionarios. Esta lista estará ordenada de mayor a menor por el numero de unidades.
 
 
 #Registro del Proyecto
 
 ##Decisiones tomadas:
 
-+La carga del fichero es delegada a una funcion y no se contempla directamente en el codigo del fichero principal.
+-La carga del fichero es delegada a una funcion y no se contempla directamente en el codigo del fichero principal.
 
 ##Dificutades encontradas:
 
@@ -218,7 +219,8 @@ Las Funciones del menu de el programa cumpliran las siguientes tareas:
 
 ##Descripcion de las funciones:
 
-+cargarDatos: Trata de recoger los datos del json y devuelve una lista con los datos, si hay un error contemplado como que el fichero no esta o no se puede leer correctamente dara un error al usuario y devuelve una lista vacia
+-cargarDatos: Trata de recoger los datos del json y devuelve una lista con los datos, si hay un error contemplado como que el fichero no esta o no se puede leer correctamente dara un error al usuario y hara que el programa cierre usando la libreria sys
 
+-listarConcesionarios: Recorre todo el largo de la lista de concesionarios y por cada uno optiene nombre, ciudad y estado y los va mostrando por pantalla, al final tambien muestra el total de concesionarios que hay
 
 

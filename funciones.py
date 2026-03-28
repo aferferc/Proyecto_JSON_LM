@@ -1,4 +1,5 @@
 import json
+import sys
 
 def cargarDatos(ruta):
     try:
@@ -7,7 +8,13 @@ def cargarDatos(ruta):
         return datos
     except FileNotFoundError:
         print('Error al cargar datos: no se encontró el fichero ', ruta)
-        return []
+        sys.exit(1)
     except json.JSONDecodeError as e:
         print('Error al leer el JSON: ', e)
-        return []
+        sys.exit(1)
+    
+def listarConcesionarios(datos):
+    for i in range(len(datos)):
+        c = datos[i]
+        print('Nombre: ', c['name'], '| Ciudad: ', c['city'], '| Estado: ', c['state'])
+    print('Total:', len(datos), 'concesionarios')

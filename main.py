@@ -20,7 +20,7 @@ while verMenu:
         print('Error: La opción debe ser un numero')
         continue
     if opcion == 1:
-        pass
+        listarConcesionarios(datos)
     elif opcion == 2:
         pass
     elif opcion == 3:
