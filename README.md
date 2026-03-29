@@ -1,5 +1,5 @@
 
-#Descripcion del fichero y Funciones del programa:
+# Descripcion del fichero y Funciones del programa:
 
 EL fichero json contiene un array concesionarios de toyota en estados unidos con información de localización, contacto, servicios e inventario. Este presenta la siguiente estructura:
 
@@ -195,7 +195,7 @@ Podemos ver mas clara la estructuracon el siguiente ejemplo:
 }
 ```
 
-##Las Funcionalidades del menu de el programa cumpliran las siguientes tareas:
+## Las Funcionalidades del menu de el programa cumpliran las siguientes tareas:
 
 1. Mostrar todos los concesionarios indicando nombre, ciudad y estado.
 
@@ -208,29 +208,37 @@ Podemos ver mas clara la estructuracon el siguiente ejemplo:
 5. Mostrar un listado de todos los modelos registrados con el numero de unidades en stock, motorizaciones, colores y extras en total sumando los datos de todos los concesionarios. Esta lista estará ordenada de mayor a menor por el numero de unidades.
 
 
-#Registro del Proyecto
+# Registro del Proyecto
 
-##Decisiones tomadas:
+## Decisiones tomadas:
 
--La carga del fichero es delegada a una funcion y no se contempla directamente en el codigo del fichero principal.
+- La carga del fichero es delegada a una funcion y no se contempla directamente en el codigo del fichero principal.
 
--Debido a la compejidad de la funcionalidad 3, se a dividido la ejecucion de esta en 3 funciones, una que recorre los datos y puede imprimir por pantalla, una que se asegura de optener los datos de el usuario y una ultima a la que se le delega la compracion de los precion dentro del rango.
+- Debido a la compejidad de la funcionalidad 3, se a dividido la ejecucion de esta en 3 funciones, una que recorre los datos y puede imprimir por pantalla, una que se asegura de optener los datos de el usuario y una ultima a la que se le delega la compracion de los precion dentro del rango.
 
-##Dificutades encontradas:
+- Antes de relazar la busqueda definitiva en la funcionalidad 4 primero se comrpueba si el modelo existe en el registro de los iventarios.
 
--Dificultad al orientar el codigo para la funcionalidad 3, debido a que al principio se trato de poner solo los modelos en ese rango, lo cual no solo acarreaba mas complejidad al tener que agrupar los modelos iguales a trabes de cada concesionario sino que podia ser impreciso, ya que en cada concesionario el precio de un unico modelo puede variar, asi que al final se a optado por proporcinar todas las unidades que encajan en el rango junto a su precio y el concesionario al que pertenecen.
+## Dificutades encontradas:
 
-##Descripcion de las funciones:
+- Dificultad al orientar el codigo para la funcionalidad 3, debido a que al principio se trato de poner solo los modelos en ese rango, lo cual no solo acarreaba mas complejidad al tener que agrupar los modelos iguales a trabes de cada concesionario sino que podia ser impreciso, ya que en cada concesionario el precio de un unico modelo puede variar, asi que al final se a optado por proporcinar todas las unidades que encajan en el rango junto a su precio y el concesionario al que pertenecen.
 
--cargarDatos: Trata de recoger los datos del json y devuelve una lista con los datos, si hay un error contemplado como que el fichero no esta o no se puede leer correctamente dara un error al usuario y hara que el programa cierre usando la libreria sys.
+## Descripcion de las funciones:
 
--listarConcesionarios: Recorre todos los elementos de la lista y por cada uno optiene nombre, ciudad y estado y los va mostrando por pantalla, al final tambien muestra el total de concesionarios que hay.
+- cargarDatos: Trata de recoger los datos del json y devuelve una lista con los datos, si hay un error contemplado como que el fichero no esta o no se puede leer correctamente dara un error al usuario y hara que el programa cierre usando la libreria sys.
 
--contarModelosConcesionario: Recorre todos los elementos de datos y por cada uno optiene el nombre y extrae el largo del inventario de este y los imprime al usuario.
+- listarConcesionarios: Recorre todos los elementos de la lista y por cada uno optiene nombre, ciudad y estado y los va mostrando por pantalla, al final tambien muestra el total de concesionarios que hay.
 
--optenerPrecios: Trata de optener el rango de precio pidiendolo al uduario, si el usuario introduce datos de tipo erroneo o un rango inposible se le da un error y se detiene el programa. Si no hay errores devuelve el rango
+- contarModelosConcesionario: Recorre todos los elementos de datos y por cada uno optiene el nombre y extrae el largo del inventario de este y los imprime al usuario.
 
--comprobarRangoPrecio: Recibe un precio_base, uno maximo y uno minimo, comprueba si el base esta comprendido entre estos y si es asi devuelve True.
+- optenerPrecios: Trata de optener el rango de precio pidiendolo al uduario, si el usuario introduce datos de tipo erroneo o un rango inposible se le da un error y se detiene el programa. Si no hay errores devuelve el rango
 
--mostrarCochesEnRangoPrecio: Revisa todos los coches de todos los concesionarios y si estos tienen un precio base dentro de un rango pedido a el usuario imprime por pantalla el modelo del cohce, su precio basey en que concesionario se encuentra.
+- comprobarRangoPrecio: Recibe un precio_base, uno maximo y uno minimo, comprueba si el base esta comprendido entre estos y si es asi devuelve True.
+
+- mostrarCochesEnRangoPrecio: Revisa todos los coches de todos los concesionarios y si estos tienen un precio base dentro de un rango pedido a el usuario imprime por pantalla el modelo del cohce, su precio basey en que concesionario se encuentra.
+
+- optenerModelo: Le pide a usuario un modelo por el que filtrar y delega a otra funcion la compreobacion de si este se encuentra registrado, si no lo esta se lo comunica al usuario y detiene el programa, si lo encuentra devuelve el modelo.
+
+- comprobarModeloEnInventario: Recibe un modelo y busca dentro de los inventarios de los concesionarios si este esta disponible, en el momento que encuentra una coincidencia devuelve true, si no la encuentra no devuelve nada.
+
+- mostrarModeloCoincidente: Optiene un modelo de el usuario mediante otra funcion y tras esto lo busca en todos los concesionario, cada vez que encuentra una coincidencia muestra el nombre del modelo, el nombre del concesionario donde lo a encontrado y todas las motorizaciones disponibles en ese concesionario.
 

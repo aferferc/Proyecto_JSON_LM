@@ -45,5 +45,28 @@ def mostrarCochesEnRangoPrecio(datos):
             if comprobarRangoPrecio(info['precio_base'], pmax, pmin):
                 print('Modelo: ', coche, ' | Precio Base: ', info['precio_base'], ' | Concesionario: ', c['name'])
 
+def optenerModelo(datos):
+    modelo = str(input('Introduzca el modelo deseado: '))
+    if comprobarModeloEnInventario(datos, modelo):
+        return modelo
+    else:
+        print("Error: No se ha podido encontrar ningun registro de este modelo")
+        sys.exit(1)
 
-                
+def comprobarModeloEnInventario(datos, modelo):
+    for c in datos:
+        for coche in c['inventario']:
+            if coche.lower() == modelo.lower():
+                return True
+
+def mostrarModeloCoincidente(datos):
+    modelo = optenerModelo(datos)
+    for c in datos:
+        for coche, info in c['inventario'].items():
+            if coche.lower() == modelo.lower():
+                motorizaciones = ''
+                for m in info['motorizaciones']:
+                    motorizaciones = motorizaciones + ' ' + m
+                print('Modelo: ', coche, ' | Motorizaciones:', motorizaciones, ' | Concesionario: ', c['name'])
+
+   

@@ -8,7 +8,7 @@ menu = '''Opciones disponibles:
 5.Resumen global de modelos (stock total)
 6.Salir'''
 
-datos = cargarDatos('toyota.json')
+datos = cargarDatos('toyota-modificado.json')
 
 verMenu = True
 
@@ -26,7 +26,7 @@ while verMenu:
     elif opcion == 3:
         mostrarCochesEnRangoPrecio(datos)
     elif opcion == 4:
-        pass
+        mostrarModeloCoincidente(datos)
     elif opcion == 5:
         pass
     elif opcion == 6:
