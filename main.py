@@ -1,4 +1,4 @@
-from Funciones import *
+from funciones import *
 
 menu = '''Opciones disponibles:
 1.Listar todos los concesionarios
@@ -28,7 +28,7 @@ while verMenu:
     elif opcion == 4:
         mostrarModeloCoincidente(datos)
     elif opcion == 5:
-        resumenGlobalModelos
+        resumenGlobalModelos(datos)
     elif opcion == 6:
         verMenu = False
     else:
