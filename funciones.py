@@ -69,4 +69,22 @@ def mostrarModeloCoincidente(datos):
                     motorizaciones = motorizaciones + ' ' + m
                 print('Modelo: ', coche, ' | Motorizaciones:', motorizaciones, ' | Concesionario: ', c['name'])
 
-   
+def resumenGlobalModelos(datos):
+    Global = {}
+    for c in datos:
+        for coche, info in c['inventario'].items():
+            if coche not in Global:
+                Global[coche] = {'stock': 0, 'motorizaciones': [], 'colores': [], 'extras': []}
+            Global[coche]['stock'] += info['stock']
+            for m in info['motorizaciones']:
+                if m not in Global[coche]['motorizaciones']:
+                    Global[coche]['motorizaciones'].append(m)
+            for col in info['colores']:
+                if col not in Global[coche]['colores']:
+                    Global[coche]['colores'].append(col)
+            for e in info['extras']:
+                if e not in Global[coche]['extras']:
+                    Global[coche]['extras'].append(e)
+    for coche in sorted(Global, key=lambda coche: Global[coche]['stock'], reverse=True):
+        print('Modelo: ', coche, ' | Stock: ', Global[coche]['stock'], ' | Motorizaciones: ', len(Global[coche]['motorizaciones']), ' | Colores: ', len(Global[coche]['colores']), ' | Extras: ', len(Global[coche]['extras']))
+        

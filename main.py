@@ -28,7 +28,7 @@ while verMenu:
     elif opcion == 4:
         mostrarModeloCoincidente(datos)
     elif opcion == 5:
-        pass
+        resumenGlobalModelos
     elif opcion == 6:
         verMenu = False
     else:

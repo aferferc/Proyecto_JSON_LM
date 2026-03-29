@@ -222,6 +222,8 @@ Podemos ver mas clara la estructuracon el siguiente ejemplo:
 
 - Dificultad al orientar el codigo para la funcionalidad 3, debido a que al principio se trato de poner solo los modelos en ese rango, lo cual no solo acarreaba mas complejidad al tener que agrupar los modelos iguales a trabes de cada concesionario sino que podia ser impreciso, ya que en cada concesionario el precio de un unico modelo puede variar, asi que al final se a optado por proporcinar todas las unidades que encajan en el rango junto a su precio y el concesionario al que pertenecen.
 
+- Dificultad a la hora de plantear el metodo de ordenado para la funcion de la funcionalidad 5, al final se soluciono usado el metodo lambda con la funcion sorted.
+
 ## Descripcion de las funciones:
 
 - cargarDatos: Trata de recoger los datos del json y devuelve una lista con los datos, si hay un error contemplado como que el fichero no esta o no se puede leer correctamente dara un error al usuario y hara que el programa cierre usando la libreria sys.
@@ -242,3 +244,4 @@ Podemos ver mas clara la estructuracon el siguiente ejemplo:
 
 - mostrarModeloCoincidente: Optiene un modelo de el usuario mediante otra funcion y tras esto lo busca en todos los concesionario, cada vez que encuentra una coincidencia muestra el nombre del modelo, el nombre del concesionario donde lo a encontrado y todas las motorizaciones disponibles en ese concesionario.
 
+- resumenGlobalModelos: Recibe los datos del fichero json y lo va recorriendo, cada vez que encuentra un nuevo modelo lo agraga a un diccionario en el que se van agrangando los nuevos atributos de cada modelo cada vez que este se encuentra en otro diccionario. Al final ordena dicho diccionario para recorrerlo e imprime las agrupaciones necesarias de los datos.
