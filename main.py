@@ -6,7 +6,9 @@ menu = '''Opciones disponibles:
 3.Filtrar modelos por rango de precio
 4.Buscar concesionarios por modelo
 5.Resumen global de modelos (stock total)
-6.Salir'''
+6.Ver media de unidades disponibles de un modelo en los concesionarios
+7.Filtrar modelos por rango de precio en una ciudad concreta
+8.Salir'''
 
 datos = cargarDatos('toyota-modificado.json')
 
@@ -30,6 +32,10 @@ while verMenu:
     elif opcion == 5:
         resumenGlobalModelos(datos)
     elif opcion == 6:
+        VerMediaStock(datos)
+    elif opcion == 7:
+        mostrarCochesEnRangoPrecioCiudad(datos)
+    elif opcion == 8:
         verMenu = False
     else:
         print('Error: Debes introducir una opción comprendida en el menú')
